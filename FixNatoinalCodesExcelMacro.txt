@@ -1,0 +1,18 @@
+Sub EditNationalCodes()
+Dim CellLen, Zeros, RowsCount, NeededZeros, NationalCodeColNumber
+RowsCount = Worksheets("Sheet1").UsedRange.Rows.Count
+
+
+NationalCodeColNumber=[NationalCode column number]
+
+For J = 2 To RowsCount - 1
+    NeededZeros = 10 - Len(Cells(J, NationalCodeColNumber))
+    Zeros = "0"
+    For I = 1 To NeededZeros - 1
+        Zeros = "0" & Zeros
+    Next I
+    
+    If Len(Cells(J, NationalCodeColNumber)) < 10 Then Cells(J, NationalCodeColNumber) = Zeros & Cells(J, NationalCodeColNumber) Else Cells(J, NationalCodeColNumber) = Cells(J, NationalCodeColNumber)
+Next J
+
+End Sub
